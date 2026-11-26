@@ -12,12 +12,29 @@ def tri_selection(tableau):
             tableau[en_cours] = tableau[plus_petit]
             tableau[plus_petit] = temp
 
-def plus_petit(tableau):
-    indice_petit = 0
-    for i in range(1, len(tableau)):
+def plus_petit(tableau: list[int], debut: int = 0) -> int:
+    if len(tableau) == 0:
+        raise ValueError("Le tableau ne peut pas être vide.")
+
+    if debut < 0 or debut >= len(tableau):
+        raise ValueError("L'indice de départ doit appartenir au tableau.")
+
+    indice_petit = debut
+    for i in range(debut + 1, len(tableau)):
         if tableau[i] < tableau[indice_petit]:
             indice_petit = i          
     return indice_petit #on retourne ici l'indice
+
+
+def tri_selection_avec_plus_petit(tableau):
+    for en_cours in range(len(tableau) - 1):
+        indice_plus_petit = plus_petit(tableau, en_cours)
+        # On réalise une permutation 
+        if indice_plus_petit != en_cours:
+            tableau[en_cours], tableau[indice_plus_petit] = (
+                tableau[indice_plus_petit],
+                tableau[en_cours],
+            )
 
 
 tab = [random.randint(-90,90) for i in range(10)]
