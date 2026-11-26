@@ -1,6 +1,13 @@
 import random 
 
 def tri_selection(tableau):
+    """Trie le tableau sur place avec le tri par sélection.
+
+    Complexité : O(n²), avec n le nombre d'éléments.
+    À chaque passage, on recherche le plus petit élément dans la partie non
+    triée. Le tableau est donc parcouru plusieurs fois, même s'il est déjà
+    trié.
+    """
     nb = len(tableau)
     for en_cours in range(0,nb-1):    
         plus_petit = en_cours
@@ -27,6 +34,13 @@ def plus_petit(tableau: list[int], debut: int = 0) -> int:
 
 
 def tri_selection_avec_plus_petit(tableau):
+    """Trie le tableau sur place avec le tri par sélection.
+
+    Complexité : O(n²), avec n le nombre d'éléments.
+    La fonction recherche le plus petit élément dans la partie non triée à
+    chaque passage. Le tableau est donc parcouru plusieurs fois, même s'il
+    est déjà trié.
+    """
     for en_cours in range(len(tableau) - 1):
         indice_plus_petit = plus_petit(tableau, en_cours)
         # On réalise une permutation 

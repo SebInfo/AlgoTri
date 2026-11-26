@@ -1,6 +1,13 @@
 import random
 
 def tri_insertion(tableau):
+    """Trie le tableau sur place avec le tri par insertion.
+
+    Complexité : généralement O(n²), avec n le nombre d'éléments.
+    Une valeur peut devoir être décalée devant beaucoup d'autres valeurs.
+    Si le tableau est déjà trié, aucun décalage n'est nécessaire : le tri est
+    alors plus rapide, en O(n).
+    """
     for i in range(1,len(tableau)):
         en_cours = tableau[i]
         j = i
